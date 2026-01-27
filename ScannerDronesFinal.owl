@@ -99,6 +99,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#hasRechargingStation">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Warehouse"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RechargingStation"/>
     </owl:ObjectProperty>
@@ -111,7 +113,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hasPart"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Warehouse"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
     </owl:ObjectProperty>
     
@@ -160,7 +162,7 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#performsScan"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Drone"/>
     </owl:ObjectProperty>
     
@@ -169,8 +171,11 @@
     <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#performsScan -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#performsScan">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Drone"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
     </owl:ObjectProperty>
     
 
@@ -178,7 +183,7 @@
     <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scannedAtShelf -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scannedAtShelf">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Shelf"/>
     </owl:ObjectProperty>
     
@@ -187,7 +192,7 @@
     <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scannedInQuadrant -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scannedInQuadrant">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scannedAtShelf"/>
@@ -200,7 +205,7 @@
     <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scannedInRow -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scannedInRow">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scannedAtShelf"/>
@@ -213,7 +218,7 @@
     <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scansItem -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scansItem">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Item"/>
     </owl:ObjectProperty>
     
@@ -254,9 +259,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hsaOCRCode -->
+    <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hasOCRCode -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hsaOCRCode">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hasOCRCode">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Item"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -267,8 +272,9 @@
     <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scanTime -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scanTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
@@ -285,10 +291,32 @@
     
 
 
+    <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#AntiTheftEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#AntiTheftEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#ScanEvent"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#ExplosiveItem -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#ExplosiveItem">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#HazardousItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#storedOn"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RefrigeratedShelf"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -297,6 +325,19 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#InfectiousItem">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#HazardousItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#storedOn"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RefrigeratedShelf"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -305,6 +346,12 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#RadioactiveItem">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#HazardousItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#storedOn"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#RadioactiveShieldingShelf"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -320,10 +367,24 @@
     
 
 
+    <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#ScanEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#ScanEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#ToxicItem -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#ToxicItem">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#HazardousItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#storedOn"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -345,17 +406,16 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#storedOn"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RefrigeratedShelf"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#storedOn"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#EdibleItem"/>
     </owl:Class>
     
 
@@ -364,6 +424,29 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ChemicalQuadrant">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#hasRow"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hasShelf"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RefrigeratedShelf"/>
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#EdibleQuadrant"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#HazmatQuadrant"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#StandardQuadrant"/>
@@ -395,12 +478,11 @@
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RechargingStation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Item"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#OCRcode"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RechargingStation"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Shelf"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Warehouse"/>
     </owl:Class>
@@ -417,7 +499,7 @@
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#RadioactiveShieldingShelf"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RefrigeratedShelf"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#StandardShelf"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -433,8 +515,69 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#EdibleQuadrant">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#hasRow"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hasShelf"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RefrigeratedShelf"/>
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#StandardShelf"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#HazmatQuadrant"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#StandardQuadrant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#FlyEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#DomainConcept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#performedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Drone"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scansItem"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Item"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#performedBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Drone"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#scansItem"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Item"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Item"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RechargingStation"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Shelf"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Warehouse"/>
     </owl:Class>
     
 
@@ -475,6 +618,30 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#HazmatQuadrant">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#hasRow"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hasShelf"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#RadioactiveShieldingShelf"/>
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RefrigeratedShelf"/>
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#StandardQuadrant"/>
     </owl:Class>
     
@@ -499,16 +666,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hsaOCRCode"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hasOCRCode"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#OCRcode"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RechargingStation"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Shelf"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Warehouse"/>
     </owl:Class>
@@ -519,12 +684,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#LiquidItem">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Item"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#storedOn"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -534,20 +693,6 @@
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#MiddleRow">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#TopRow"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#OCRcode -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#OCRcode">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#DomainConcept"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RechargingStation"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Shelf"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Warehouse"/>
     </owl:Class>
     
 
@@ -569,7 +714,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RechargingStation"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
     </owl:Class>
     
 
@@ -579,7 +723,6 @@
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RechargingStation">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#DomainConcept"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Shelf"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Warehouse"/>
     </owl:Class>
@@ -590,7 +733,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#RefrigeratedShelf">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Shelf"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#SealedShelf"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#StandardShelf"/>
     </owl:Class>
     
@@ -612,29 +754,6 @@
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Shelf"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#ScanEvent">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#DomainConcept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#performedBy"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Drone"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#performedBy"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Drone"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Shelf"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Warehouse"/>
     </owl:Class>
     
 
@@ -660,6 +779,22 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#StandardQuadrant">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Quadrant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#hasRow"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#Row"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6#hasShelf"/>
+                                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/gregorio/ontologies/2026/0/untitled-ontology-6/#StandardShelf"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -706,12 +841,12 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#HasKey"/>
         <owl:Class></owl:Class>
-        <owl:ObjectProperty></owl:ObjectProperty>
+        <owl:DatatypeProperty></owl:DatatypeProperty>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#HasKey"/>
         <owl:Class></owl:Class>
-        <owl:DatatypeProperty></owl:DatatypeProperty>
+        <owl:ObjectProperty></owl:ObjectProperty>
     </rdf:Description>
 </rdf:RDF>
 

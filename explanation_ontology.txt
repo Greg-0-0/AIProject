@@ -1,12 +1,4 @@
-every subclass of domain concept is disjointed with another sibling class
-except for warehouse, quadrant, row and shelf, this because for object that have a relation part-whole logically they are different but ontologically they mustn't 
-Quadrant results to be a subclass of Warehouse, but this works logically, since a Warehouse could be composed by only one quadrant or more
-
-be disjointed to allow inference, since there maybe some inference chains, that get inconsistent with disjointness
-chemicals can be hazardous (toxicItem e.g. corrosive acid), or not (e.g. sodium bicarbonate), however in the second case they are still labeled as chemicals 
-(there are still hazards but very minimal)
-
-property restriction some means every element of the domain has "at least one" related element in the range through that relation (infers existance)
+Property restriction some means every element of the domain has "at least one" related element in the range through that relation (infers existance)
 e.g. Warehouse hasQuadrant some Quadrant -> being a Warehouse means it must have at least one Quadrant (necessary cond) = every Warehouse has at least one quadrant
 e.g. Item storedOn some Shelf -> every item is stored at least on one shelf
 property restriction only means if an element of the domain has that specific relation than it must point to the related element in the range given by that relation 
@@ -14,10 +6,15 @@ property restriction only means if an element of the domain has that specific re
 e.g, Warehouse hasQuadrant only Quadrant -> if a Warehouse is in a relation hasQuadrant then it must be with a Quadrant, but there can also be none (nor necessary nor sufficient) =
     = if a warehouse has quadrants, they must be quadrants (seems trivial, but it's important in logic)
 e.g. Item storedOn only Shelf -> if an item is stored, it must be stored on a shelf
-
 together they do: every Warehouse has at least one relation with Quadrant, and only Quadrant
 
+Absence of disjointness does NOT force overlap
+
 Classes:
+every subclass of domain concept is disjointed with another sibling class
+except for warehouse, quadrant, row and shelf, this because for object that have a relation part-whole logically they are different but ontologically they mustn't 
+Quadrant results to be a subclass of Warehouse, but this works logically, since a Warehouse could be composed by only one quadrant or more
+They are disjointed to allow inference chains, and they may get inconsistent with disjointness
 
 - Drone:
 disjointed with everything (logically holds)
@@ -29,18 +26,65 @@ extacly 1 OCR code (unique identifier)
 stordeOn only and exactly 1 shelf -> exactly one, and only shelves are in relation "storedOn" with Item
 
     - ChemicalItem:
-    disjointed with EdibleItem
-    stordeOn only and exactly 1 sealed shelf -> exactly one, and only sealedshelves are in relation "storedOn" with ChemicalItem
+    disjointed InfectiousItem, they could be all the other types included HazardousItem (except InfectiousItem) (e.g. colorants are edible as aswell), 
+    but not necessarily (absence of disjointness doesn not force overlap)
+    ChemicalItem can be hazardous (e.g. ToxicItem -> corrosive acid), or not (e.g. sodium bicarbonate), however in the second case they are still labeled as chemicals 
+    (there are still hazards but very minimal)
+    storedOn exaclty 1 Shelf -> inherited by Item superclass
+    stordeOn only with sealed shelf or refrigerated shelf -> only SealedShelf or RefrigeratedShelf are in relation "storedOn" with ChemicalItem, 
+    but or it's exclusive since can be stored on exaclty 1 shelf
 
     - EdibleItem:
     disjointed with ChemicalItem and HazardousItem
+    storedOn exaclty 1 Shelf -> inherited by Item superclass
     stordeOn only either on refrigerated or standard shelf -> only with those types of shelves there is a relation "storedOn" with EdibleItem,
     it would be inclusive, however the "exactly 1" restriction applied on storedOn in the super class Item makes it exclusive (either on the standard or refrigerated, not both)
 
     - FragileItem:
     no disjoints (any type of item can be fragile)
+    storedOn exaclty 1 Shelf -> inherited by Item superclass
     stordeOn only on a shelf that is in the bottom row (created using "Class expression editor" section in "SubClass of" and pasting "storedOn only (Shelf and (inRow some BottomRow))")
      -> fragile items can be in any shelf (no disjoints), but must be in bottom row (avoid braking if they fall)
+
+    - HazardousItem: 
+    disjointed with EdibleItem, composed by multiple subclasses, only InfectiousItem is disjoint with another class (ChemicalItem), 
+    all the others aren't, but this doesn't force overlap (only disjointness forces absence of overlap)
+
+        - ExplosiveItem:
+        disjoints inherited by HazardousItem
+        storedOn exaclty 1 Shelf -> inherited by Item superclass
+        storedOn only sealed shelf ->  only SealedShelf is in relation "storedOn" with ExplosiveItem 
+
+        -InfectiousItem:
+        disjoints inherited by HazardousItem + with ChemicalItem
+        storedOn exaclty 1 Shelf -> inherited by Item superclass
+        storedOn only sealed shelf or refrigerated shelf ->  only SealedShelf or RefrigeratedShelf are in relation "storedOn" with InfectiousItem,
+        but or it's exclusive since can be stored on exaclty 1 shelf
+
+        -RadioactiveItem:
+        disjoints inherited by HazardousItem
+        storedOn exaclty 1 Shelf -> inherited by Item superclass
+        storedOn only radiocative shelf ->  only RadioactiveShelf is in relation "storedOn" with RadioactiveItem
+
+        -ToxicItem:
+        disjoints inherited by HazardousItem
+        storedOn exaclty 1 Shelf -> inherited by Item superclass
+        storedOn only sealed shelf ->  only SealedShelf is in relation "storedOn" with ToxicItem
+    
+    - LiquidItem:
+    no disjoints (any type of item can be liquid)
+    storedOn only and exaclty 1 Shelf -> inherited by Item superclass
+
+- Quadrant: 
+disjoint with all the other classes except the structural ones (Warehouse, Row, Shelf), this because, even though logically they are different, ontologically they may be linked through
+some inference chain, this links may be disrupted by disjointness (also to avoid inconsistency error), because of this it can be a subclass of warehouse which make sense, 
+since a single Quadrant can still be identiﬁed as a Warehouse
+hasRow only with Row and at least 1 row -> relations hasRow only with classes Row, and at least one of them
+
+    - ChemicalQuadrant:
+    disjointed with all the other subclasses
+
+- Shelf: SealedShelf and RefrigeratedShelf may not be disjointed, since ChemicalItem could need to be in both 
 
 Properties:
 
@@ -62,3 +106,5 @@ Properties:
 "some" would still work, since "exaclty 1" in "at least 1" is consistent with functional, however "exactly 2 or more" is inconsistent with functional)
            asymmetric -> RS cannot use a Drone as its home
            irreflexive -> a drone cannot be its own home
+
+- ScansItem: it means when it activates the scanner (it happens at least 1 time when it flies away)
