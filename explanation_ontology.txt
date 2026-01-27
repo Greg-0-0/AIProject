@@ -1,0 +1,64 @@
+every subclass of domain concept is disjointed with another sibling class
+except for warehouse, quadrant, row and shelf, this because for object that have a relation part-whole logically they are different but ontologically they mustn't 
+Quadrant results to be a subclass of Warehouse, but this works logically, since a Warehouse could be composed by only one quadrant or more
+
+be disjointed to allow inference, since there maybe some inference chains, that get inconsistent with disjointness
+chemicals can be hazardous (toxicItem e.g. corrosive acid), or not (e.g. sodium bicarbonate), however in the second case they are still labeled as chemicals 
+(there are still hazards but very minimal)
+
+property restriction some means every element of the domain has "at least one" related element in the range through that relation (infers existance)
+e.g. Warehouse hasQuadrant some Quadrant -> being a Warehouse means it must have at least one Quadrant (necessary cond) = every Warehouse has at least one quadrant
+e.g. Item storedOn some Shelf -> every item is stored at least on one shelf
+property restriction only means if an element of the domain has that specific relation than it must point to the related element in the range given by that relation 
+(infers constraint -> "if there is it must be like this" )
+e.g, Warehouse hasQuadrant only Quadrant -> if a Warehouse is in a relation hasQuadrant then it must be with a Quadrant, but there can also be none (nor necessary nor sufficient) =
+    = if a warehouse has quadrants, they must be quadrants (seems trivial, but it's important in logic)
+e.g. Item storedOn only Shelf -> if an item is stored, it must be stored on a shelf
+
+together they do: every Warehouse has at least one relation with Quadrant, and only Quadrant
+
+Classes:
+
+- Drone:
+disjointed with everything (logically holds)
+homesAt only with RechargingStation, and at least one (there may be multiple RechargingStation that it can call "home")
+
+- Item:
+disjointed with everything (logically holds)
+extacly 1 OCR code (unique identifier)
+stordeOn only and exactly 1 shelf -> exactly one, and only shelves are in relation "storedOn" with Item
+
+    - ChemicalItem:
+    disjointed with EdibleItem
+    stordeOn only and exactly 1 sealed shelf -> exactly one, and only sealedshelves are in relation "storedOn" with ChemicalItem
+
+    - EdibleItem:
+    disjointed with ChemicalItem and HazardousItem
+    stordeOn only either on refrigerated or standard shelf -> only with those types of shelves there is a relation "storedOn" with EdibleItem,
+    it would be inclusive, however the "exactly 1" restriction applied on storedOn in the super class Item makes it exclusive (either on the standard or refrigerated, not both)
+
+    - FragileItem:
+    no disjoints (any type of item can be fragile)
+    stordeOn only on a shelf that is in the bottom row (created using "Class expression editor" section in "SubClass of" and pasting "storedOn only (Shelf and (inRow some BottomRow))")
+     -> fragile items can be in any shelf (no disjoints), but must be in bottom row (avoid braking if they fall)
+
+Properties:
+
+- hasPart: superclass for the structural properties
+            transitive -> Warehouse hasQuadrant Quadrant and Quadrant hasRow Row can create Warehouse hasRow Row
+
+- hasQuadrant:  asymmetric -> quadrant cannot be in relation hasQuadrant with Warehouse
+                irreflexive -> quadrant cannot be in relation hasQuadrant with Quadrant
+
+- hasRow:  asymmetric -> Row cannot be in relation hasRow with Quadrant
+            irreflexive -> Row cannot be in relation hasRow with Row
+
+- hasShelf:  asymmetric -> Shelf cannot be in relation hasShelf with Row
+                irreflexive -> Shelf cannot be in relation hasShelf with Shelf
+
+- hasRechargingStation: not functional -> allows warehouse to have multiple RechargingStation
+
+- homesAt: not functional -> allows a drone to home at multiple RS (indeed the property is applied with restriction some (at least 1 or more), but even if it was functional, 
+"some" would still work, since "exaclty 1" in "at least 1" is consistent with functional, however "exactly 2 or more" is inconsistent with functional)
+           asymmetric -> RS cannot use a Drone as its home
+           irreflexive -> a drone cannot be its own home
