@@ -20,6 +20,18 @@ They are disjointed to allow inference chains, and they may get inconsistent wit
 disjointed with everything (logically holds)
 homesAt only with RechargingStation, and at least one (there may be multiple RechargingStation that it can call "home")
 
+-FlyEvent:
+disjointed with everything (logically holds)
+performedBy only and some Drone -> in relation performedBy only with Drone and multiple drones can do this operation
+scansItem only and some Item -> in relation scansItem only with Item and multiple items can be scanned during this operation (at least one) -> 
+operation of scanning means looking at an item
+
+    - AntiTheftEvent:
+    disjoint with ScanEvent, represents an operation to check if the quantity of goods is consistent with the internal db of the drone 
+
+    - ScansEvent:
+    disjoint with AntiTheftEvent, represents operation of simple scanning of eventual new goods
+
 - Item:
 disjointed with everything (logically holds)
 extacly 1 OCR code (unique identifier)
@@ -53,7 +65,8 @@ stordeOn only and exactly 1 shelf -> exactly one, and only shelves are in relati
         - ExplosiveItem:
         disjoints inherited by HazardousItem
         storedOn exaclty 1 Shelf -> inherited by Item superclass
-        storedOn only sealed shelf ->  only SealedShelf is in relation "storedOn" with ExplosiveItem 
+        storedOn only sealed shelf or refrigerated shelf (exclusive for property restriction "exactly 1" of parent) ->  only RefrigeratedShelf or SealedShelf are
+        in relation "storedOn" with ExplosiveItem 
 
         -InfectiousItem:
         disjoints inherited by HazardousItem + with ChemicalItem
@@ -83,8 +96,25 @@ hasRow only with Row and at least 1 row -> relations hasRow only with classes Ro
 
     - ChemicalQuadrant:
     disjointed with all the other subclasses
+    hasRow only (Row and (hasShelf only (RefrigeratedShelf or SealedShelf))) -> in its rows has only shelves that are either RefrigeratedShelf or SealedShelf
 
-- Shelf: SealedShelf and RefrigeratedShelf may not be disjointed, since ChemicalItem could need to be in both 
+    - EdibleQuadrant:
+    disjointed with all the other subclasses
+    hasRow only (Row and (hasShelf only (RefrigeratedShelf or StandardShelf))) -> in its rows has only shelves that are either RefrigeratedShelf or StandardShelf
+
+    - HazmatQuadrant:
+    disjointed with all the other subclasses
+    hasRow only (Row and (hasShelf only (RefrigeratedShelf or SealedShelf or RadioactiveShieldingShelf))) -> in its rows has only shelves that are either
+    RefrigeratedShelf or RadioactiveShieldingShelf or SealedShelf
+
+    - StandardQuadrant:
+    disjointed with all the other subclasses
+    hasRow only (Row and (hasShelf only StandardShelf)) -> in its rows has only shelves that are StandardShelf
+
+
+- Shelf: SealedShelf and RefrigeratedShelf may not be disjointed, since ChemicalItem could need to be in a shelf which is both sealed and refrigerated, 
+same for InfectiousItem or  ExplosiveItem 
+
 
 Properties:
 
